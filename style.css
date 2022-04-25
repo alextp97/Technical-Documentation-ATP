@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(245, 185, 235);
+}
+
+#navbar {
+    
+    position: fixed;
+    top: 0;
+    width: 280px;
+    min-width: 270px;
+    height: 100%;
+    border-right: solid;
+    border-color: aqua;
+  }
+  
+  #main-doc {
+    position: absolute;
+    margin-left: 290px;
+    padding: 20px;
+    background-color: blueviolet;
+  }
