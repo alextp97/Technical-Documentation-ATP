@@ -1,37 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:wght@300&display=swap');
+
 body {
-    background-color: rgb(245, 185, 235);
+    
 }
 
 #navbar {
     
     position: fixed;
-    top: 0;
-    width: 280px;
+    top: 0px;
+    left: 0px;
+    width: 288px;
     min-width: 270px;
     height: 100%;
-    border-right: solid;
-    border-color: aqua;
+    border-right: 5px solid;
+    border-color: #9C9C9C;
 }
 
+#navbar a {
+
+    display: block;
+    padding: 15px 30px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Lobster', cursive;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+#navbar ul {
+    
+    display: block;
+    padding: 0;
+    list-style-type: none;
+    left: 0px;
+    
+}
+
+#navbar li {
+    position: relative;
+    width: 100%;
+    border-top: 1px solid;
+    border-color: black;
+}
+ 
 header {
 
-    margin: 10px;
+    margin-top: 18px;
+    margin-bottom: 25px;
     text-align: center;
-    font-size: 26px;
+    font-size: 24px;
+    font-weight: 800;
+    font-family: 'Lobster', cursive;
+    font-family: 'Open Sans', sans-serif;
 }
   
+/* Aquí empieza el código del main doc y todos sus elementos */
 #main-doc {
     position: absolute;
-    margin-left: 290px;
-    padding: 20px;
-    background-color: blueviolet;
+    margin-top: 0px;
+    margin-left: 284px;
+    padding: 30px;
 }
 
 #main-doc  header{
 
     text-align: left;
     margin: 0;
+    font-weight: 800;
 
+}
+
+#main-doc p, li, h3 {
+
+    font-family: 'Lobster', cursive;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.main-section {
+    margin-bottom: 40px;
+    line-height: 1.5;
+}
+
+code {
+
+    position: relative;
+    display: block;
+    text-align: left;
+    line-height: 2em;
+    background-color: #F2F2F2;
+    margin: 15px;
+    padding: 18px;
+    border-radius: 5px;
 }
 
   
