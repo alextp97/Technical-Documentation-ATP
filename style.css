@@ -96,15 +96,14 @@ code {
 }
 
 /* Código para cuando se vea en móviles */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 650px) {
 
     #navbar {
 
       position: absolute;
       width: 100%;
-      max-height: 290px;
+      max-height: 240px;
       border: none;
-      z-index: 1;
       border-bottom: 2px solid;
       overflow-y: auto;
     }
