@@ -43,25 +43,189 @@
         <!--Distintas secciones del cuerpo con su correspondiente documentación-->
         <section class="main-section" id="introduccion_a_php">
          <header>Introduccion a PHP</header> 
+
          <article>
              <p>PHP (acrónimo recursivo de PHP: Hypertext Preprocessor) es un lenguaje de código abierto muy popular especialmente adecuado para el desarrollo web y que puede ser incrustado en HTML.</p>
+             <p>
+                Bien, pero ¿qué significa realmente? Un ejemplo nos aclarará las cosas:
+             </p>
+             <p>
+                 <strong>Ejemplo #1 Un ejemplo introductorio</strong>
+             </p>
+             <!--Uso de la etiqueta code-->
+             <code>
+                    echo "¡Hola, soy un script de PHP!"; 
+            </code> 
+
+            <p>
+                Lo que distingue a PHP de algo del lado del cliente como Javascript es que el código es ejecutado en el servidor, generando HTML y enviándolo al cliente. 
+                El cliente recibirá el resultado de ejecutar el script, aunque no se sabrá el código subyacente que era. 
+                El servidor web puede ser configurado incluso para que procese todos los ficheros HTML con PHP, por lo que no hay manera de que los usuarios puedan saber 
+                qué se tiene debajo de la manga.
+            </p>
          </article>  
         </section>
 
+        <!--Sección de declarar variables-->
         <section class="main-section" id="declarando_variables">
             <header>Declarando Variables</header>
+
+            <p>
+                En PHP las variables se representan con un signo de dólar seguido por el nombre de la variable. El nombre de la variable es sensible a minúsculas y mayúsculas.
+            </p>
+            <p>
+                Los nombres de variables siguen las mismas reglas que otras etiquetas en PHP. Un nombre de variable válido tiene que empezar con una letra o un carácter de subrayado (underscore),
+                seguido de cualquier número de letras, números y caracteres de subrayado. Como expresión regular se podría expresar como: '[a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*'
+            </p>
+
+            <ul>
+                <li>Para los propósitos de este manual, una letra es a-z, A-Z, y los bytes del 127 al 255 (0x7f-0xff).</li>
+                <li>$this es una variable especial que no puede ser asignada.</li>           
+            </ul>
+
+            <code>
+                $var = 'Roberto'; </br>
+                $Var = 'Juan'; </br>
+                echo "$var, $Var";      // imprime "Roberto, Juan"</br></br>
+
+                $4site = 'aun no';      // inválido; comienza con un número </br>
+                $_4site = 'aun no';     // válido; comienza con un carácter de subrayado </br>
+                täyte = 'mansikka';    // válido; 'ä' es ASCII (Extendido) 228 </br>
+            </code>
         </section>
 
+        <!--Seccion de las variables variables-->
         <section class="main-section" id="variables_variables">
             <header>Variables Variables</header>
+
+            <p>
+                A veces es conveniente tener nombres de variables variables. Dicho de otro modo, son nombres de variables que se pueden definir y usar dinámicamente. 
+                Una variable normal se establece con una sentencia como:
+            </p>
+
+            <code>
+                &#60;?php </br>
+                    $a = 'hola'; </br>
+                ?&#62;
+            </code>
+
+            <p>
+                Una variable variable toma el valor de una variable y lo trata como el nombre de una variable. En el ejemplo anterior, hola, 
+                se puede usar como el nombre de una variable utilizando dos signos de dólar. Es decir:
+            </p>
+
+            <code>
+                &#60;?php </br>
+                    $$a = 'mundo'; </br>
+                ?&#62;
+            </code>
+
+            <p>
+                En este momento se han definido y almacenado dos variables en el árbol de símbolos de PHP: $a, que contiene "hola", y $hola, que contiene "mundo". Es más, esta sentencia:
+            </p>
+
+            <code>
+                &#60;?php </br>
+                    echo "$a ${$a}"; </br>
+                ?&#62;
+            </code>
+
+            <p>
+                produce el mismo resultado que:
+            </p>
+
+            <code>
+                &#60;?php </br>
+                echo "$a $hola"; </br>
+                ?&#62;
+            </code>
         </section>
 
         <section class="main-section" id="constantes">
             <header>Constantes</header>
+            <p>
+                Una constante es un identificador (nombre) para un valor simple. Como el nombre sugiere, este valor no puede variar durante la ejecución del script
+                (a excepción de las constantes mágicas, que en realidad no son constantes).
+                Por defecto, una constante distingue mayúsculas y minúsculas. Por convención, los identificadores de constantes siempre se declaran en mayúsculas.
+            </p>
+
+            <p>
+                El nombre de una constante sigue las mismas reglas que cualquier otra etiqueta de PHP. Un nombre de constante válido empieza por una letra o guion bajo,
+                 seguido por cualquier número de letras, números o guiones bajos. Usando una expresión regular, se representaría de la siguiente manera: [a-zA-Z_\x7f-\xff][a-zA-Z0-9_\x7f-\xff]*
+            </p>
+
+            <p>
+                Antes de ver el ejemplo, hay que tener en cuenta los siguientes conceptos:
+            </p>
+
+            <ul>
+                <li><a href="https://www.php.net/manual/es/language.constants.syntax.php">Sintaxis</a></li>
+                <li><a href="https://www.php.net/manual/es/language.constants.predefined.php">Constantes predefinidas</a></li>
+            </ul>
+
+            <code>
+                &#60;?php </br></br>
+
+                // Nombres de constantes correctos </br>
+                define("FOO",     "something"); </br>
+                define("FOO2",    "something else"); </br>
+                define("FOO_BAR", "something more"); </br></br>
+
+                // Nombres de constantes incorrectos </br>
+                define("2FOO",    "something");</br></br>
+
+                // Esto es válido, pero debe evitarse: </br>
+                // PHP podría cualquier día proporcionar una constante mágica </br>
+                // que rompiera el script </br>
+                define("__FOO__", "something"); </br></br> 
+
+                ?&#62;
+            </code>
         </section>
 
         <section class="main-section" id="operadores">
             <header>Operadores</header>
+            <h3>Tabla de contenidos</h3>
+
+            <ul>
+                <li>
+                    <a href="https://www.php.net/manual/es/language.operators.precedence.php">Precedencia de operaciones</a>
+                </li>
+
+                <li>
+                    <a href="https://www.php.net/manual/es/language.operators.arithmetic.php">Operadores aritméticos</a>
+                </li>
+
+                <li>
+                    <a href="https://www.php.net/manual/es/language.operators.assignment.php">Operadores de asignación</a>
+                </li>
+
+                <li>
+                    <a href="https://www.php.net/manual/es/language.operators.bitwise.php">Operadores bit a bit</a>
+                </li>
+
+                <li>
+                    <a href="https://www.php.net/manual/es/language.operators.comparison.php">Operadores de comparación</a>
+                </li>
+            </ul>
+
+            <p>
+                Un operador es algo que toma uno más valores (o expresiones, en la jerga de programación) y produce otro valor (de modo que la construcción en si misma se convierte en una expresión).
+            </p>
+
+            <p>
+                Los operadores se pueden agrupar de acuerdo con el número de valores que toman. Los operadores unarios toman sólo un valor, por ejemplo ! 
+                (el operador lógico de negación) o ++ (el operador de incremento). Los operadores binarios toman dos valores, como los familiares operadores 
+                aritméticos + (suma) y - (resta), y la mayoría de los operadores de PHP entran en esta categoría. Finalmente, hay sólo un operador ternario, ? 
+                :, el cual toma tres valores; usualmente a este se le refiere simplemente como "el operador ternario" (aunque podría tal vez llamarse más correctamente 
+                como el operador condicional).
+            </p>
+
+            <p>
+                Una lista completa de operadores de PHP sigue en la sección Precedencia de Operadores. La sección también explica la precedencia y asociatividad de los operadores, 
+                las cuales gobiernan exactamente cómo son evaluadas expresiones que contienen varios diferentes operadores.
+            </p>
+
         </section>
 
     </main>
